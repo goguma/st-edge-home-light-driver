@@ -1,0 +1,79 @@
+name: HomeLightController.v1
+components:
+- id: main
+  capabilities:
+  - id: switch
+    version: 1
+  - id: refresh
+    version: 1
+  categories:
+  - name: Light
+metadata:
+  deviceType: Light
+  ocfDeviceType: oic.d.light
+  deviceTypeId: Light
+preferences:
+  - name: roomNumber
+    title: "Room number"
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        r1: "Kitchen"
+        r2: "BedRoom"
+        r3: "PlayRoom"
+        r4: "ComputerRoom"
+        r5: "AlphaRoom"
+      default: "r1"
+  - name: lightNumber
+    title: "Light number"
+    required: true
+    preferenceType: enumeration
+    definition:
+      options:
+        l1: "Light 1"
+        l2: "Light 2"
+        l3: "Light 3"
+      default: "l1"
+  - name: serverIP
+    title: "Server IP"
+    required: true
+    preferenceType: string
+    definition:
+      minLength: 7
+      maxLength: 15
+      stringType: text
+      default: "192.168.0.x"
+  - name: serverPort
+    title: "Server Port"
+    required: true
+    preferenceType: string
+    definition:
+      minLength: 1
+      maxLength: 8
+      stringType: text
+      default: "808x"
+  - name: userId
+    title: "User Id"
+    required: true
+    preferenceType: string
+    definition:
+      minLength: 1
+      maxLength: 16
+      stringType: text
+      default: "goguma"
+  - name: userPassword
+    title: "User Password"
+    required: true
+    preferenceType: string
+    definition:
+      maxLength: 32
+      stringType: password
+      default: ""
+  - name: createDevice
+    title: "Create new Device (Toggle)"
+    description: "Turn off and turn back ON to create a new device"
+    required: true
+    preferenceType: boolean
+    definition:
+      default: true
